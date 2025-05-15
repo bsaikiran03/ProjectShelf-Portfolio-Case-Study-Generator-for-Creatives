@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - ProjectShelf</title>
+    <link id="theme-stylesheet" rel="stylesheet" href="/static/css/light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome Back!</h1>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        <form method="post">
+            <label>Username: <input type="text" name="username" required></label>
+            <label>Password: <input type="password" name="password" required></label>
+            <button type="submit">Login</button>
+        </form>
+        <p>New here? <a href="/signup">Create an Account</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,189 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #2D3436, #4B0082);
+    color: #E0E0E0;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Typography */
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    color: #F7F7F7;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    color: #81ECEC;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    color: #D6A2E8;
+    margin-bottom: 0.8rem;
+}
+
+/* Container */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px;
+    background: #2C2C54;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    background: linear-gradient(135deg, #353565, #4B0082);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 2px solid #81ECEC;
+}
+
+label {
+    font-weight: 600;
+    color: #E0E0E0;
+}
+
+input, textarea, select {
+    width: 100%;
+    max-width: 450px;
+    padding: 0.9rem;
+    border: 2px solid #D6A2E8;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #1A1A3D;
+    color: #E0E0E0;
+    transition: border-color 0.3s, transform 0.2s;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #FF6B6B;
+    transform: scale(1.02);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Buttons */
+button {
+    padding: 0.9rem 2rem;
+    background: linear-gradient(45deg, #FF6B6B, #FFCE38);
+    color: #FFF;
+    border: none;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Case Study Cards */
+.case-study {
+    background: #353565;
+    border: 3px solid #81ECEC;
+    border-radius: 12px;
+    padding: 1.8rem;
+    margin: 1.5rem 0;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.case-study:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(129, 236, 236, 0.3);
+}
+
+.case-study img, .case-study iframe {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 0.8rem 0;
+    border: 2px solid #FFCE38;
+}
+
+/* Links */
+a {
+    color: #81ECEC;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #FF6B6B;
+    text-decoration: underline;
+}
+
+/* Error Messages */
+.error {
+    color: #FF6B6B;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    form {
+        padding: 1.5rem;
+    }
+
+    input, textarea, select {
+        max-width: 100%;
+    }
+
+    button {
+        padding: 0.8rem 1.5rem;
+    }
+}

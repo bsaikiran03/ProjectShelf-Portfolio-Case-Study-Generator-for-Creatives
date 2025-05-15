@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - ProjectShelf</title>
+    <link id="theme-stylesheet" rel="stylesheet" href="/static/css/light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Creative Hub, {{ user.username }}!</h1>
+        <h2>Create Portfolio</h2>
+        <form id="portfolio-form">
+            <label>Title: <input type="text" name="title" required></label>
+            <label>Description: <textarea name="description"></textarea></label>
+            <label>Theme:
+                <select name="theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+            </label>
+            <button type="button" onclick="previewTheme(document.getElementById('portfolio-form').theme.value)">Preview Theme</button>
+            <button type="submit">Create Portfolio</button>
+        </form>
+        <h2>Add Case Study</h2>
+        <form id="case-study-form">
+            <label>Title: <input type="text" name="title" required></label>
+            <label>Overview: <textarea name="overview"></textarea></label>
+            <label>Media URLs (comma-separated): <input type="text" name="media"></label>
+            <label>Timeline: <input type="text" name="timeline"></label>
+            <label>Tools (comma-separated): <input type="text" name="tools"></label>
+            <label>Outcomes: <textarea name="outcomes"></textarea></label>
+            <button type="submit">Add Case Study</button>
+        </form>
+        <h2>Your Case Studies</h2>
+        <div id="case-studies">
+            {% for cs in case_studies %}
+                <div class="case-study">
+                    <h3>{{ cs.title }}</h3>
+                    <p>{{ cs.overview or '' }}</p>
+                    <p><strong>Media:</strong> {{ cs.media|join(', ') or 'None' }}</p>
+                    <p><strong>Timeline:</strong> {{ cs.timeline or 'N/A' }}</p>
+                    <p><strong>Tools:</strong> {{ cs.tools|join(', ') or 'N/A' }}</p>
+                    <p><strong>Outcomes:</strong> {{ cs.outcomes or 'N/A' }}</p>
+                </div>
+            {% else %}
+                <p>No case studies yet. Add one above!</p>
+            {% endfor %}
+        </div>
+        <h2>Analytics</h2>
+        <div id="analytics">
+            {% if analytics %}
+                {% for analytic in analytics %}
+                    <p>Case Study ID {{ analytic.case_study_id }}: Page Views: {{ analytic.page_views }}, Clicks: {{ analytic.clicks }}</p>
+                {% endfor %}
+            {% else %}
+                <p>No analytics data yet. Add case studies and share your portfolio!</p>
+            {% endif %}
+        </div>
+    </div>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

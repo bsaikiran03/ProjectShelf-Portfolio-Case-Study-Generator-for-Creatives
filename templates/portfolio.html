@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio - {{ user.username }}</title>
+    <link id="theme-stylesheet" rel="stylesheet" href="/static/css/{% if portfolio %}{{ portfolio.theme }}{% else %}light{% endif %}.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ portfolio.title if portfolio else user.username + "'s Showcase" }}</h1>
+        <p>{{ portfolio.description if portfolio else '' }}</p>
+        <h2>Case Studies</h2>
+        <div id="case-studies">
+            {% for cs in case_studies %}
+                <div class="case-study" data-id="{{ cs.id }}">
+                    <h3>{{ cs.title }}</h3>
+                    <p>{{ cs.overview or '' }}</p>
+                    <div>
+                        {% for url in cs.media %}
+                            {% if 'youtube' in url %}
+                                <iframe src="{{ url }}" frameborder="0" allowfullscreen></iframe>
+                            {% else %}
+                                <img src="{{ url }}" alt="media">
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <p><strong>Timeline:</strong> {{ cs.timeline or 'N/A' }}</p>
+                    <p><strong>Tools:</strong> {{ cs.tools|join(', ') or 'N/A' }}</p>
+                    <p><strong>Outcomes:</strong> {{ cs.outcomes or 'N/A' }}</p>
+                </div>
+            {% else %}
+                <p>No case studies yet. Check back soon!</p>
+            {% endfor %}
+        </div>
+        {% if analytics %}
+            <p>Analytics: Page Views: {{ analytics.page_views }}, Clicks: {{ analytics.clicks }}</p>
+        {% endif %}
+    </div>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
