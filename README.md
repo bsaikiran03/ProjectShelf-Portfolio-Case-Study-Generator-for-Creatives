@@ -2,8 +2,8 @@
 
 ProjectShelf is a web application that empowers creators to build and share vibrant portfolio pages with dynamic case studies. It features user authentication, a portfolio builder, case study management, analytics tracking, and a colorful, responsive UI with light and dark themes.
 
-Live Demo: https://projectshelf-flask.onrender.com
-Video Walkthrough: [YouTube/Google Drive Link] (Replace with your video link after uploading)
+Live Demo: [https://projectshelf-flask.onrender.com](https://projectshelf-portfolio-case-study-osw4.onrender.com)
+
 
 Features
 
